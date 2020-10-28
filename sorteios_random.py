@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import random
+import time
 
 bolao = random.randint(0,100)
 tentativa = 0
@@ -21,7 +22,7 @@ if topar == "sim" or topar == "sin":
 	tentativa = 0
 elif topar == "nao" or topar == "não" or topar == "not":
 	print("Que Pena!!")
-	tentativa = 8
+	tentativa = 7
 else:
 	print("\nNão entendi...")
 	topar = str(input("\nDigite sim ou nao: "))
@@ -29,50 +30,37 @@ else:
 
 while tentativa <= 7:
 	restante = 7 - tentativa
+	time.sleep(3)
 	if tentativa == 0:
-		print("OK %s" % nome)
-		print("%i tentativas restantes!" % restante)
-		palpite = int(input("Digite seu palpite: "))
+		print("\nOK %s" % nome)
+		print("\nCARREGANDO...")
+		time.sleep(5)
+		palpite = int(input("\n\nDigite seu palpite: "))
 		
-		if palpite < bolao:
-			print("\nQuase lá!! Chute um número mais alto!\n")
-			tentativa = tentativa +1
-
-		elif palpite > bolao:
-			print("\nQuase lá!! Chute um número mais baixo!\n")
-
-			tentativa = tentativa +1
-		else:
-			print("\nUAU!! Você acertou de primeira!!")
-			print("PARABÉNS %s!!!!" % nome)
-			tentativa = 8
-
-	elif tentativa > 0 and tentativa < 5:
-		print("%i tentativas restantes!" % restante)
-		palpite = int(input("Digite seu palpite: "))
-
-		if palpite < bolao:
-			print("\nQuase lá!! Chute um número mais alto!\n")
-			
-			tentativa = tentativa +1
-
-		elif palpite > bolao:
-			print("\nQuase lá!! Chute um número mais baixo!\n")
-
-			tentativa = tentativa +1
-		else:
-			print("\nUAU!! Você acertou de primeira!!")
-			print("PARABÉNS %s!!!!", nome)
-			tentativa = 8
-	elif tentativa == 5:
-		print("Bem Vindo a sua ultima tentativa!!")
-		tentativa = tentativa + 1
-
+	elif tentativa > 0 and tentativa <= 5:
+		print("\n%i tentativas restantes!" % restante)
+		palpite = int(input("\n\nDigite seu palpite: "))
+		
 	elif tentativa == 6:
-		print("Você esgotou suas tentativas ")
-		print("\n\nObrigado por participar!!")
-		tentativa = tentativa + 1
+		print("\n%i tentativas restantes!" % restante)
+		print("\nBem Vindo a sua ultima tentativa!!")
+		palpite = int(input("\n\nDigite seu palpite: "))
 
 	elif tentativa == 7:
+		print("\nVocê esgotou suas tentativas ")
 		print("\n\nObrigado por participar!!")
-		tentativa = tentativa + 1
+
+	time.sleep(3)
+
+	if palpite < bolao:
+		print("\nQuase lá!! Chute um número mais alto!\n")
+
+	elif palpite > bolao:
+		print("\nQuase lá!! Chute um número mais baixo!\n")
+
+	else:
+		print("\nUAU!! Você acertou de primeira!!")
+		print("PARABÉNS %s!!!!" % nome)
+		tentativa = 8
+
+	tentativa = tentativa + 1
