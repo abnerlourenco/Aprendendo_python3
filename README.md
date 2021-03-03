@@ -1,4 +1,3 @@
-# hello_py
+# Aprendendo Python3
 
-iniciando uma nova fonte de conhecimento
-aprendendo e evoluindo no Python3
+
